@@ -1,0 +1,7 @@
+<h1>Create a Review</h1>
+
+  <%= simple_form_for [@review,@list] do |f| %>
+    <%= f.input :comment, placeholder: "Enter a comment about the movie" %>
+    <%= f.input :stars, placeholder: "Just Number" %>
+    <%= f.submit "Add Review", class: "btn btn-flat" %>
+  <% end %>

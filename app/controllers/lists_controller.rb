@@ -12,10 +12,6 @@ class ListsController < ApplicationController
     @list = List.new
   end
 
-  def new
-    @list = List.new
-  end
-
   def create
       @list = List.new(params_list)
       if @list.save

@@ -3,7 +3,10 @@ Rails.application.routes.draw do
   #MOVIES
   get "movies", to: "movies#index"
 
-  #LIST
+  #reviews
+  get  "lists/:id/reviews/new", to: "reviews#new", as: 'new_list_review'
+  post "lists/:id/reviews", to: "reviews#create", as: "list_reviews"
+
   #index
   get "lists", to: "lists#index"
   get "lists/new", to: "lists#new", as: 'new'
@@ -20,4 +23,5 @@ Rails.application.routes.draw do
 
 
   delete "/bookmarks/:id", to: "bookmarks#destroy", as: 'delete_bookmark'
+
 end
