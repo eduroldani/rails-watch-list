@@ -1,8 +1,30 @@
-<h1>One List</h1>
 
+<div class="container">
+  <h2>List Name: <%=@list.name %></h2>
+    <h4>
+      <%=link_to "Delete List", delete_list_path(@list),
+      method: :delete,
+      data: { confirm: 'Are you sure?' } %>
+    </h4>
+</div>
 
-<h2>List Name: <%=@list.name %></h2>
-
-<h2>Pelicula: <% @list.movies.each do |movie|%></h2>
-<%= movie.title %>
+<div class="container">
+<div>
+  <h4> <%= link_to "Back to Lists", lists_path %> </h4>
+</div>
+<div>
+  <h4> <%= link_to "Add a Bookmark", new_list_bookmark_path(@list) %> </h4>
+</div>
+<h2>Peliculas: <% @list.movies.each do |movie|%></h2>
+<% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
+  <h3><%= movie.title %> </h3>
+  <h3>comment:<%= bookmark.comment%></h3>
+  <%= link_to "Delete Bookmark",
+            delete_bookmark_path(bookmark),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
 <% end %>
+
+
+
+</div>

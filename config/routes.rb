@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   #MOVIES
   get "movies", to: "movies#index"
 
-
   #LIST
   #index
   get "lists", to: "lists#index"
@@ -11,11 +10,14 @@ Rails.application.routes.draw do
   post "lists", to: "lists#create"
   #Display one
   get "lists/:id", to: "lists#show", as: 'list'
-  #create a new list
+  #Delate List
+  delete "lists/:id", to: "lists#destroy", as: 'delete_list'
 
 
   #BOOKMARK
   get  "lists/:list_id/bookmarks/new", to: "bookmarks#new", as: 'new_list_bookmark'
   post "lists/:list_id/bookmarks", to: "bookmarks#create", as: 'list_bookmarks'
 
+
+  delete "/bookmarks/:id", to: "bookmarks#destroy", as: 'delete_bookmark'
 end

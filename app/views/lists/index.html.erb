@@ -1,5 +1,15 @@
-<h1>List Index</h1>
+<div class="banner">
+  <h1>Welcome to the movies selection</h1>
+</div>
 
-<% @lists.each do |list| %>
-  <h3> - <%=list.id %> - <%=list.name %> - </h3>
-<% end %>
+<div class="container">
+  <div class="row align-items-center">
+    <% @lists.each do |list| %>
+      <div class="col card-product m-3">
+        <div class="card-product-infos">
+          <h3> <%= link_to list.name, list_path(list) %> </h3>
+        </div>
+      </div>
+    <% end %>
+   </div>
+</div>
